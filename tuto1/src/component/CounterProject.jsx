@@ -9,8 +9,8 @@ export default function CounterProject({recentNumber, clickHandler}) {
 
        
 <div className="text-center">
-     <Button variant="secondary" className="mx-1" onClick={clickHandler(e, "inc")}>+</Button>
-       <Button variant="dark" >-</Button>
+     <Button variant="secondary" className="mx-1" onClick={(e)=>clickHandler(e, "inc")}>+</Button>
+       <Button variant="dark" onClick={(e)=>clickHandler(e, "dec")} >-</Button>
      <Result number={recentNumber}/>
 </div>
       

@@ -45,7 +45,7 @@ switch(input){
       />
       <Button onClick={(e)=> clickHandler(e, "An")} > CLICK IT</Button> */}
 
-<CounterProject clickHandler={valueHandler(e, input)} recentNumber={value} />
+<CounterProject clickHandler={valueHandler} recentNumber={value} />
     </div>
   )
 }
