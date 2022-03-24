@@ -1,5 +1,7 @@
-import { Container, Button } from "react-bootstrap";
+import { Container, Button, Dropdown, DropdownButton, Badge } from "react-bootstrap";
 import { useEffect, useState } from "react";
+import DropdownAccordion from "./components/DropdownAccordion";
+import CarouselTop from "./components/CarouselTop";
 
 
 
@@ -35,7 +37,6 @@ function App() {
     //   .then(res => res.json())
     //   .then(data => {
     //     setSinglePost(data)
-    
     //   })
    setIndexNumber(indexNumber +1)
   }
@@ -44,10 +45,10 @@ function App() {
     e.preventDefault()
     // console.log(indexNumber)
 
-    // if (indexNumber == 0) {
-    //   alert("no post found")
-    // } else {
-   
+    if (indexNumber == 0) {
+      alert("no post found")
+    } 
+    //else {
     //   fetch(`https://jsonplaceholder.typicode.com/posts/${ indexNumber }`)
     //     .then(res => res.json())
     //     .then(data => {
@@ -56,15 +57,17 @@ function App() {
   setIndexNumber(indexNumber -1) 
   }
 console.log(indexNumber)
+
+
   return (
 
     <Container className="text-center mt-5">
       <h1 >Single Post title</h1>
-      <Button variant={"warning"} className="mx-2" onClick={prevPost}> Previous post</Button>
+      <Button variant={"warning"}  onClick={prevPost}> Previous post</Button> {" "}
 
       <Button variant="info" onClick={nextPost} > Next post</Button>
-      <p> {posts.title} </p>
-      <p>{posts.id} </p>
+      <p className="my-2"> {posts.title} </p>
+      <p>{posts.body} </p>
 
 
       {/* 
@@ -77,7 +80,26 @@ console.log(indexNumber)
 </div>
   ))
  } */}
+ <Dropdown className="d-inline mx-2" autoClose="inside" >
+    <Dropdown.Toggle id="dropdown-autoclose-inside">
+      
+    Set next or previous post { }
+    <Badge bg="warning">new </Badge>
+    </Dropdown.Toggle>
+   
+    <Dropdown.Menu >
+      <Dropdown.Item href="#" onClick={prevPost}> Previous post</Dropdown.Item>
+      <Dropdown.Item  onClick={nextPost} > Next post</Dropdown.Item>
+    </Dropdown.Menu>
+  
+  </Dropdown>
+
+<DropdownAccordion />
+
+
+<CarouselTop posts={posts} />
     </Container>
+
   );
 }
 
