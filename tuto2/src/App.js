@@ -16,19 +16,27 @@ function App() {
 
   let url =["https://www.googleapis.com/blogger/v3/blogs/8867027205370636728/posts/7983034314144341891?key=AIzaSyBBPq4WOAiBBlsdGnL8xNqB71S5BMEUMV4", 
   "https://www.googleapis.com/blogger/v3/blogs/8867027205370636728/posts/1905931621331799833?key=AIzaSyBBPq4WOAiBBlsdGnL8xNqB71S5BMEUMV4"  ]
+const [singlePost, setSinglePost] = useState([])
+const [postIndex, setPostIndex]= useState(0)
 
- 
+function blogHandler(e){
+  e.preventDefault()
+  setPostIndex(postIndex +1)
+  setSinglePost(blogData[postIndex])
+}
+console.log(postIndex)
 useEffect(() => {
-for(let x = 0 ; x< url.length ; x ++){
-     fetch(url[x])
+
+     fetch( "https://www.googleapis.com/blogger/v3/blogs/8867027205370636728/posts?key=AIzaSyBBPq4WOAiBBlsdGnL8xNqB71S5BMEUMV4" )
       .then(res => res.json()) // is om de data om te zetten json file
       .then(data => {
-        setBlogData(data)
+        setBlogData(data.items)
         //retrieved data here
-  
-})}
+      }
+)
 
   }, [])
+
  console.log(blogData)
 //functie maken om data toe te voegen 
 //werkt niet zoals ik het eerst dacht
@@ -90,13 +98,15 @@ for(let x = 0 ; x< url.length ; x ++){
         <LoginForm submitHandler={formSubmitHandler} formHandler={formHandler} />
 <br/>
 <div className="blog">
+  <Button onClick={blogHandler} >Set blog</Button>
+  {console.log(singlePost)}
   <h1>
-   {blogData.title}
+   {singlePost.title}
 </h1>
        <br/>
      
 
-        <div dangerouslySetInnerHTML={{ __html: blogData.content }} />
+        <div dangerouslySetInnerHTML={{ __html: singlePost.content }} />
 
 </div>
 
