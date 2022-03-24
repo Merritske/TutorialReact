@@ -5,47 +5,83 @@ import { useEffect, useState } from "react";
 
 function App() {
 
-//useState useEffect useRef useContext >> react HOOKS
-//useEffect = zal uitvoeren na het loaden van de page
-//empty array in usestate zetten zodat het niet "undefined" zal geven
-const [posts, setPosts] = useState([]) //saved posts json data in here
+  //useState useEffect useRef useContext >> react HOOKS
+  //useEffect = zal uitvoeren na het loaden van de page
+  //empty array in usestate zetten zodat het niet "undefined" zal geven
+  const [posts, setPosts] = useState([]) //saved posts json data in here
+  const [indexNumber, setIndexNumber] = useState(1)
+  const [singlePost, setSinglePost] = useState([])
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log("hello")
-    fetch("https://jsonplaceholder.typicode.com/posts")
-    .then(res => res.json() ) //res.json wordt data / res = parameter van de functie
-    .then((data => {
-      //console.log(data)
-      setPosts(data)
-    } ))
-    .catch(err=> console.log(err)) //om error op te sporen als data niet geladen kan worden
-  },[])
+    fetch("https://jsonplaceholder.typicode.com/posts/" +indexNumber)
+      .then(res => res.json()) //res.json wordt data / res = parameter van de functie
+      .then((data => {
+        // console.log(data)
+        setPosts(data)
+
+      }))
+      .catch(err => console.log(err)) //om error op te sporen als data niet geladen kan worden
+  },[indexNumber])
+
+  const nextPost = (e) => {
+    e.preventDefault()
+    //geeft verkeerd resultaat, telt eerst af voordat hij terug optelt en bij prevPost net andersom
+   // console.log(indexNumber)
+
+    // fetch(`https://jsonplaceholder.typicode.com/posts/${indexNumber }`)
+    //   //je kan ook : fetch("https://jsonplaceholder.typicode.com/posts" + indexNumber)
+    //   //https://jsonplaceholder.typicode.com/posts/1   geeft de eerste post
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     setSinglePost(data)
+    
+    //   })
+   setIndexNumber(indexNumber +1)
+  }
+
+  const prevPost = (e) => {
+    e.preventDefault()
+    // console.log(indexNumber)
+
+    // if (indexNumber == 0) {
+    //   alert("no post found")
+    // } else {
+   
+    //   fetch(`https://jsonplaceholder.typicode.com/posts/${ indexNumber }`)
+    //     .then(res => res.json())
+    //     .then(data => {
+    //       setSinglePost(data)
+   //}    //     })
+  setIndexNumber(indexNumber -1) 
+  }
+console.log(indexNumber)
   return (
 
-<Container>
+    <Container className="text-center mt-5">
+      <h1 >Single Post title</h1>
+      <Button variant={"warning"} className="mx-2" onClick={prevPost}> Previous post</Button>
+
+      <Button variant="info" onClick={nextPost} > Next post</Button>
+      <p> {posts.title} </p>
+      <p>{posts.id} </p>
 
 
-
-  <p>Single Post title</p>
-  <Button variant={"warning"}> Previous post</Button>
-
-  <Button variant="info" > Next post</Button>
-
-
+      {/* 
  {
    posts.map((post, index)=>(
 <div key={index} >
-{console.log(post.title)}
+
 <p >{post.title}</p>
 <p>{post.body} </p>
 </div>
   ))
- }
-</Container>
+ } */}
+    </Container>
   );
 }
 
- 
+
 
 
 
