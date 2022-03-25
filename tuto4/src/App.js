@@ -1,11 +1,12 @@
 import { Container, Row, Col } from "react-bootstrap";
+import ChildComponent from "./component/ChildComponent";
 
 
-function App() {
+function App({helloMessage}) {
   return (
     <>
       <Container fluid className="m-5 w-75 ">
-
+<ChildComponent helloMessage={helloMessage}/>
         <Row className="m-5 justify-content-center" >
           <Col xs lg="2">
             Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. 

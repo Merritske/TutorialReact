@@ -8,15 +8,22 @@ import Header from './component/Header';
 import Footer from './component/Footer';
 import Blog from "./Blog"
 import Contact from "./Contact"
+import Admin from './Admin';
+import ProtectedRoute from './ProtectedRoute';
 
 ReactDOM.render(
 
 <BrowserRouter>
 <Header/>
 <Routes>
-<Route path="/" element={ <App /> } />
-<Route path='/blog' element={<Blog/>} />
+<Route path="/" element={ <App helloMessage="this is a test" /> } />
+<Route path='/blog'  element={<Blog auth={{email:"merritske@gmail.com"}}/>} />
 <Route path='/contact' element={<Contact/>} />
+<Route path='/admin' element={
+  <ProtectedRoute user={{username:"admin", password:"1234"  }} >
+    <Admin  />
+  </ProtectedRoute>
+} />
 
 </Routes>
 <Footer/>

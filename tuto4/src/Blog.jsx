@@ -1,10 +1,49 @@
-import { Accordion, Container } from "react-bootstrap"
+import { useEffect, useState } from "react"
+import { Accordion, Container, Card, Row, Col } from "react-bootstrap"
+import CardC from "./component/CardC"
 
-export default function Blog() {
+
+
+export default function Blog({auth}) {
+const [posts, setPosts] = useState([])
+
+useEffect(()=>{
+  fetch("https://jsonplaceholder.typicode.com/posts")
+  .then(res => res.json())
+  .then(data =>{
+setPosts(data)
+  })
+},[])
+
+
+
+const IsAuthValid = ()=>{
+  if(auth.email !== "merritske@gmail.com" ){
+    console.log("auth fail")
+    return (<h1>user logged in</h1>)
+  }
+  return(
+    <h1>user logged in</h1>
+  )
+}
+
   return (
     <Container className="m-5">
+{console.log("hello")}
+  
 
+  <h1>BLOGPAGE</h1>
+  <Row xs={1} md={2} className="g-4">
+    {
+      posts.map((post, index)=>(
+    
+        <CardC post={post} key={index} />
    
+      ))
+    }
+
+  </Row>
+ <IsAuthValid />
     <Accordion >
     <Accordion.Item eventKey="0">
       <Accordion.Header>10 maart: Wanneer komt de lente</Accordion.Header>
@@ -67,6 +106,7 @@ export default function Blog() {
       </Accordion.Body>
     </Accordion.Item>
   </Accordion>
+
    </Container>
   )
 }
