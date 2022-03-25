@@ -1,0 +1,20 @@
+{
+  "db": [
+    {
+      "email": "kaoaler",
+      "password": "kdoada",
+      "id": 1
+    },
+    {
+      "email": "klmrt",
+      "password": "145456",
+      "id": 2
+    },
+    {
+      "email": "moeke",
+      "password": "kopaer",
+      "id": 3
+    }
+  ],
+  "contact": []
+}
