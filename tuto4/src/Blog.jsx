@@ -13,6 +13,7 @@ useEffect(()=>{
   .then(data =>{
 setPosts(data)
   })
+  
 },[])
 
 

@@ -2,10 +2,13 @@ import { Container, Row, Col } from "react-bootstrap";
 import ChildComponent from "./component/ChildComponent";
 
 
+
 function App({helloMessage}) {
   return (
     <>
       <Container fluid className="m-5 w-75 ">
+  
+        <br/>
 <ChildComponent helloMessage={helloMessage}/>
         <Row className="m-5 justify-content-center" >
           <Col xs lg="2">

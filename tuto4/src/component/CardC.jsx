@@ -1,5 +1,6 @@
 
     import { Card, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 export default function CardC({post}) {
 
   return (
@@ -10,7 +11,7 @@ export default function CardC({post}) {
             <Col>
             <Card>
                 {console.log(post)}
-                <Card.Img variant="top" src="/images/hond.jpg" />
+              <Link to={`/Blog/${post.id}`}>  <Card.Img variant="top" src="/images/hond.jpg" /> </Link>
                 <Card.Body>
                     <Card.Title>{post.title}</Card.Title>
                     <Card.Text>

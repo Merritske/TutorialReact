@@ -1,10 +1,41 @@
-import { InputGroup, FormControl, Form } from "react-bootstrap"
+import { useEffect, useState } from "react"
+import { InputGroup, FormControl } from "react-bootstrap"
 
 //layout nog aanpassen
 
 export default function Contact() {
+
+const [currencies, setCurrencies] = useState([])
+
+useEffect(()=>{
+FetchCurrencies()
+},[])
+
+const FetchCurrencies = ()=>{
+  fetch(process.env.REACT_APP_API_URL)
+.then(res=> res.json())
+.then(data=>{
+  console.log(data)
+  setCurrencies(data.data)
+  setTimeout(FetchCurrencies, 20000)
+})
+}
+console.log(currencies)
   return (
     <>
+<h1> Contact PAge</h1>
+<h2>TEST</h2>
+<ul>
+  {
+    currencies.map((currency, index)=>{
+     return <li key={index}  >{currency.name} PRICE :{currency.quote['USD'].price} </li>
+    })
+  }
+</ul>
+
+
+
+{/* 
     <InputGroup className="mb-3">
       <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
       <FormControl
@@ -23,24 +54,11 @@ export default function Contact() {
       <InputGroup.Text id="basic-addon2">@example.com</InputGroup.Text>
     </InputGroup>
   
-    <Form.Label htmlFor="basic-url">Your vanity URL</Form.Label>
-    <InputGroup className="mb-3">
-      <InputGroup.Text id="basic-addon3">
-        https://example.com/users/
-      </InputGroup.Text>
-      <FormControl id="basic-url" aria-describedby="basic-addon3" />
-    </InputGroup>
-  
-    <InputGroup className="mb-3">
-      <InputGroup.Text>$</InputGroup.Text>
-      <FormControl aria-label="Amount (to the nearest dollar)" />
-      <InputGroup.Text>.00</InputGroup.Text>
-    </InputGroup>
   
     <InputGroup>
-      <InputGroup.Text>With textarea</InputGroup.Text>
+      <InputGroup.Text>Leave your question here: </InputGroup.Text>
       <FormControl as="textarea" aria-label="With textarea" />
-    </InputGroup>
+    </InputGroup> */}
   </>
   )
 }
