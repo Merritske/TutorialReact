@@ -6,7 +6,7 @@ import newsReducer from "./NewsReducers"
 const rootReducer = combineReducers({
     news: newsReducer,
     // user: userReducer,
-    // todos: todosReducers
+    // todos: todosReducer
 })
 
 export default rootReducer
