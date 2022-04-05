@@ -1,0 +1,19 @@
+.container{
+    display: grid;
+  gap: 50px;
+   grid-template-areas: 'title title title'
+   'posts stories stories';
+   background-color: azure;
+}
+.title{
+    grid-area: title;
+}
+.posts{
+grid-area: posts;
+}
+.stories{
+  grid-area: stories;
+  background-color: blue;
+  padding: 30px;
+  border-radius: 5px;
+}
