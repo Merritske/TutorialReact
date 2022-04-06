@@ -2,7 +2,7 @@ import React, { useState }   from 'react'
 import Stories from '../component/Stories'
 import { getAllBlog, getSingleBlog } from '../redux/actions/blogActions'
 import {useDispatch, useSelector} from "react-redux"
-
+import "../styles/blog.css"
 
 export default function Blog() {
     const dispatch = useDispatch()
