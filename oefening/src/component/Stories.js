@@ -18,9 +18,12 @@ export default function Stories() {
     <div> 
         <h2> Stories</h2>
 <h3 style={{color: "white"}} >Meesterschap</h3>
-        <Document file={master} >
+<div className='preview'>
+     <Document file={master}  >
    <Page pageNumber={1}/>
         </Document>
+</div>
+     
     </div>
   )
 }

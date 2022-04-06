@@ -24,16 +24,16 @@ input{
     padding: 10px;
 }
 .loginBtn{
-    padding: 10px;
+    padding:15px 25px;
     font-size: 20px;
     align-self: center;
-    background-color: blue;
+    background-color:rgb(0,100,30);
     border-radius: 5px;
     color: aquamarine;
 margin: 10px;
 }
 .loginBtn:hover{
     background-color: aquamarine;
-    color: blue;
-    box-shadow: 0 0 5px 3px blue;
+    color:rgb(0,100,30);
+    box-shadow: 0 0 5px 3px rgb(0,100,30);
 }

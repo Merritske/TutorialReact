@@ -3,7 +3,7 @@
   gap: 50px;
    grid-template-areas: 'title title title'
    'posts stories stories';
-   background-color: azure;
+   background-color: rgb(197, 238, 209);
 }
 .title{
     grid-area: title;
@@ -12,10 +12,27 @@
 }
 .posts{
 grid-area: posts;
+margin-left: 35px;
+padding: 10px;
+}
+.posts>h2{
+    margin: 20px;
+}
+.posts>button{
+    margin: 30px;
+    padding: 15px 25px;
+    font-size: 20px;
 }
 .stories{
   grid-area: stories;
-  background-color: blue;
+  background-color: rgb(0,100,30);
   padding: 30px;
   border-radius: 5px;
+}
+.preview{
+    height: 300px;
+    text-overflow: ellipsis;
+    overflow: auto;
+z-index: 10;
+
 }
