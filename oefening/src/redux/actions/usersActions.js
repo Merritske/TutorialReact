@@ -31,18 +31,19 @@ export const getUser = ()=> async(dispatch)=>{
 
 
 
- export function Loggingin({state}){
+ export function Loggingin({state }){
     fetch(process.env.REACT_APP_API_URL)
     .then(res=> res.json())
     .then((data)=>{
         data.map((user)=>{
             if(user.username === state.usernameI && user.name === state.password){
-                console.log('hoera')
+            //   getUserName(state)
+            console.log("hoera")
             }
         })
     })
 
-    return   console.log("piep")
+    return  
 
 
  }

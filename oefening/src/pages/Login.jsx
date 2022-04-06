@@ -24,6 +24,9 @@ setState({
  }
 Loggingin({state})
 
+//als login is ok => layout veranderen
+//als login is nt ok =< foutmelding
+//login moet verdwijnen als ingelogd is
 
   return (<>
     <div className='headLogin'>
