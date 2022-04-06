@@ -1,17 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState }   from 'react'
 import Stories from '../component/Stories'
-import {useDispatch, useSelector} from "react-redux"
 import { getAllBlog, getSingleBlog } from '../redux/actions/blogActions'
-import "../styles/blog.css"
+import {useDispatch, useSelector} from "react-redux"
+
 
 export default function Blog() {
     const dispatch = useDispatch()
 const AllBlogs = useSelector((state)=>state).blog.blog
 const SingleBlog = useSelector((state)=>state).blog.singleBlog
+
   return (
-  <div className='container'> 
+    <div>
+
+<div className='container'> 
     <h1 className='title'>
-      HOME 
+      BLOG
     </h1>
 
 <div className='posts'>
@@ -35,5 +38,13 @@ const SingleBlog = useSelector((state)=>state).blog.singleBlog
 </div>
 </div>
 
+
+
+    </div>
   )
 }
+
+
+
+
+
