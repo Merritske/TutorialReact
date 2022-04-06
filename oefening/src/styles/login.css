@@ -4,6 +4,39 @@
     background-color: rgb(0,100,30);
     color: rgb(111,250,25);
 }
+.headLoggedIn{
+    display: flex;
+align-items: center;
+background-color: rgb(0,100,30);
+color: rgb(111,250,25);
+justify-content: center;
+}
+i:hover{
+    color:rgb(197, 238, 209) ; 
+    transform: scale(1.5);
+cursor: pointer;
+}
+.tooltip{
+    position: relative;
+}
+.tooltip .tooltipcontent{
+    visibility: hidden;
+   z-index: 2;
+   position: absolute;
+   left: 150%;
+   bottom: 0%;
+   height: 40px;
+   width: 800px;
+margin: 10px;
+font-size: 25px;
+
+}
+
+.tooltip:hover .tooltipcontent{
+visibility: visible;
+color:  rgb(197, 238, 209) ;
+
+}
 .headLogin>i{
     padding-left: 30px;
 }

@@ -8,7 +8,7 @@ export default function Blog() {
     const dispatch = useDispatch()
 const AllBlogs = useSelector((state)=>state).blog.blog
 const SingleBlog = useSelector((state)=>state).blog.singleBlog
-
+console.log(AllBlogs)
   return (
     <div>
 
