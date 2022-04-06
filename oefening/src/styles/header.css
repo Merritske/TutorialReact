@@ -1,0 +1,118 @@
+.navbar {
+    display: flex;
+  background-image: linear-gradient(180deg,rgb(0,100,30) 10%, rgb(111,250,25) 100%);
+    color: rgb(0,100,30);
+    margin: 0;
+    padding: 0;
+     justify-content: space-around;
+}
+
+.navbar-item {
+    margin: 20px;
+    list-style-type: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+  
+}
+
+.navbar-item a:before,
+.navbar-item a:after,
+.navbar-item a span:before,
+.navbar-item a span:after {
+    content: "";
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    padding: 0 30px;
+    color: rgb(0,100,30);
+    letter-spacing: 3px;
+}
+
+a:hover,
+a:active,
+a:focus {
+    text-decoration: none;
+    color: rgb(197, 238, 209);
+}
+a:active, a:focus{
+    border: 3px solid rgb(197, 238, 209);
+}
+.navbar-item a {
+    padding: 0;
+}
+
+.navbar-item a span {
+    display: block;
+    padding: 10px 30px;
+}
+
+.navbar-item a:before,
+.navbar-item a:after,
+.navbar-item a span:before,
+.navbar-item a span:after {
+    position: absolute;
+    background-color:rgb(197, 238, 209);
+}
+
+.navbar-item a:before {
+    width: 3px;
+    height: 0;
+    left: 0;
+    bottom: 0;
+    -webkit-transition: all .1s .3s;
+    -o-transition: all .1s .3s;
+    transition: all .1s .3s;
+}
+
+.navbar-item a:after {
+    width: 0;
+    height: 3px;
+    left: 0;
+    top: 0;
+    -webkit-transition: all .1s .2s;
+    -o-transition: all .1s .2s;
+    transition: all .1s .2s;
+}
+
+.navbar-item a span:before {
+    width: 3px;
+    height: 0;
+    right: 0;
+    top: 0;
+    -webkit-transition: all .1s .1s;
+    -o-transition: all .1s .1s;
+    transition: all .1s .1s;
+}
+
+.navbar-item a span:after {
+    width: 0;
+    height: 3px;
+    right: 0;
+    bottom: 0;
+    transition: all .1s;
+}
+
+.navbar-item a:hover:before {
+    height: 100%;
+    transition: all .1s;
+}
+
+.navbar-item a:hover:after {
+    width: 100%;
+    transition: all .1s .1s;
+}
+
+.navbar-item a:hover span:before {
+    height: 100%;
+    transition: all .1s .2s;
+}
+
+.navbar-item a:hover span:after {
+    width: 100%;
+    transition: all .1s .3s;
+}
