@@ -20,6 +20,9 @@ Login
   </Link> 
   </li>
   <li>
+    <Link to={"/blog"} element={<Blog/>}>Blog</Link>
+  </li>
+  <li>
     <Link to={"/contact"}>Contact</Link>
   </li>
 </ul>
