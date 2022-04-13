@@ -2,7 +2,7 @@ import {getUser, getUserName} from "../redux/actions/usersActions"
 import { useState } from "react"
 import "../styles/login.css"
 import {Loggingin} from "../redux/actions/usersActions"
-
+import { Document } from "react-pdf"
 
 export default function Login() {
   const [isLoggedin, setIsLoggedIn] = useState("false")
